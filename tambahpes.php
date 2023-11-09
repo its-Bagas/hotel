@@ -73,6 +73,17 @@ require 'funtions.php';
               <div class="border border-black rounded-lg mb-5">
                   <input type="Date" name="tgl" class=" form-control text-base px-2 py-2.5 flex w-full rounded-lg" value="" placeholder="Masukkan tanggal">
               </div>
+              <div class=" hidden border border-black rounded-lg mb-5">
+                  <select type="saldo" name="saldo" class=" form-control text-base px-2 py-2.5 flex w-full rounded-lg" value="" placeholder="Masukkan saldo">
+                  <?php 
+                    include "config.php";
+                    $qry_tipe=mysqli_query($connection,"select saldo from pelanggan");
+                    while($data_tipe=mysqli_fetch_array($qry_tipe)){
+                        echo '<option value="'.$data_tipe['id'].'">'.$data_tipe['tipe'].'</option>';    
+                    }
+                    ?>
+                    </select>
+              </div>
               <!-- button continue -->
              <a href="#"><button type="submit" name="submit" class="bg-[#1E65D9]  py-2 px-3 rounded-md w-full text-white  mb-5  hover:[]" >Lanjut</button></a>
              </form>
